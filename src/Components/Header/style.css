@@ -1,0 +1,32 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #FFF;
+  box-shadow: 0 0 10px #ddd;
+  padding: 15px 30px;
+}
+
+.header h2 {
+  flex: 1;
+}
+
+.header ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+}
+
+.header ul a {
+  color: black;
+  font-size: 17px;
+  padding: 15px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.header ul a.active {
+  color: red;
+}

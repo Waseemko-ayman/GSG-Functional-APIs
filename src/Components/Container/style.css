@@ -1,0 +1,29 @@
+.main__container {
+  margin: 0 auto;
+  /* background-color: gray; */
+}
+
+.main__container--padding {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Small screens */
+@media (min-width: 768px){
+  .main__container {
+      width: 750px;
+  }
+}
+
+/* Medium screens */
+@media (min-width: 992px){
+  .main__container{
+      width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .main__container {
+      width: 1170px;
+  }
+}

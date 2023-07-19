@@ -1,0 +1,11 @@
+.edit-page {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.edit-page h1 {
+  margin-bottom: 15px;
+  text-align: center;
+}
