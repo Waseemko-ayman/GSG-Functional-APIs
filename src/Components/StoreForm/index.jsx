@@ -18,7 +18,6 @@ const inputArray = [
 
 const StoreForm = ({ store, handleSubmit, isLoading }) => {
 
-  // const { store, isLoading } = useParams();
   const [name, setName] = useState('');
   const [cities, setCities] = useState('');
   const [isGetFirstTimeData, setIsGetFirstTimeData] = useState(true);

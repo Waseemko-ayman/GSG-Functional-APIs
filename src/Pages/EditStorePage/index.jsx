@@ -16,8 +16,6 @@ const EditStorePage = (props) => {
   const [isGoToListPage, setIsGoToListPage] = useState(false);
   const [, setError] = useState(null);
 
-  // const id = props?.params?.id;
-
   useEffect(() => {
     (
       async () => {
