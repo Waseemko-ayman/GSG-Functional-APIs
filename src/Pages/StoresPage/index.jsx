@@ -5,6 +5,7 @@ import { Navigate } from 'react-router-dom';
 import { PATHS } from '../../Components/router/paths';
 import "./style.css"
 import axios from 'axios';
+import { API_URL } from '../../config/api';
 
 const StoresPage = () => {
 
@@ -19,7 +20,7 @@ const StoresPage = () => {
     (
       async () => {
         try {
-          const { data } = await axios.get('https://some-data.onrender.com/stores')
+          const { data } = await axios.get(`${API_URL}stores`)
           setStores(data)
         } catch (error) {
           console.log(error.message)
@@ -34,7 +35,7 @@ const StoresPage = () => {
   const handleDelete = (id) => {
     console.log(id, "is Delted")
     try {
-      axios.delete(`https://some-data.onrender.com/stores/${id}`)
+      axios.delete(`${API_URL}stores/${id}`)
       setStores(stores.filter((store) => store.id !== id));
     } catch (err) {
       console.log(err);

@@ -5,6 +5,7 @@ import axios from 'axios';
 import { PATHS } from '../../Components/router/paths';
 import { Navigate } from 'react-router-dom';
 import "./style.css"
+import { API_URL } from '../../config/api';
 
 const CreateStorePage = () => {
 
@@ -14,7 +15,7 @@ const CreateStorePage = () => {
   const handleCreateStore = async (body) => {
     setIsLoading(true);
     try {
-      const res = await axios.post(`https://some-data.onrender.com/stores`, body)
+      const res = await axios.post(`${API_URL}stores`, body)
       console.log(res.data)
       setIsLoading(false);
       setIsGoToListPage(true);

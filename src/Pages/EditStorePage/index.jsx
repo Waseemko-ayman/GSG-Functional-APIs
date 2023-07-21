@@ -6,6 +6,7 @@ import axios from 'axios';
 import { PATHS } from '../../Components/router/paths';
 import { Navigate, useParams } from 'react-router-dom';
 import "./style.css"
+import { API_URL } from '../../config/api';
 
 
 const EditStorePage = (props) => {
@@ -20,7 +21,7 @@ const EditStorePage = (props) => {
     (
       async () => {
         try {
-          const { data } = await axios.get(`https://some-data.onrender.com/stores/${id}`)
+          const { data } = await axios.get(`${API_URL}stores/${id}`)
           setStore(data)
         } catch (error) {
           console.log(error.message)
@@ -35,7 +36,7 @@ const EditStorePage = (props) => {
   const handleEditStore = async (body) => {
     setIsLoading(true);
     try {
-      const res = await axios.put(`https://some-data.onrender.com/stores/${id}`, body)
+      const res = await axios.put(`${API_URL}stores/${id}`, body)
       setStore(res.data);
       setIsLoading(false);
       setIsGoToListPage(true);

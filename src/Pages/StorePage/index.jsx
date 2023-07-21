@@ -5,6 +5,7 @@ import { PATHS } from '../../Components/router/paths';
 import { Navigate, useParams } from 'react-router-dom';
 import WithParams from '../../Components/WithParams';
 import "./style.css";
+import { API_URL } from '../../config/api';
 
 const StorePage = () => {
 
@@ -22,7 +23,7 @@ const StorePage = () => {
     (
       async () => {
         try {
-          const { data } = await axios.get(`https://some-data.onrender.com/stores/${id}`)
+          const { data } = await axios.get(`${API_URL}stores/${id}`)
           setStore(data)
         } catch (error) {
           console.log(error.message)
