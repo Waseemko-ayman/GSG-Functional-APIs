@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Table from '../../Components/Table';
 import { STORES_COLUMNS } from '../../Components/Constants/stores';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { PATHS } from '../../Components/router/paths';
 import "./style.css"
 import axios from 'axios';
@@ -9,12 +9,10 @@ import { API_URL } from '../../config/api';
 
 const StoresPage = () => {
 
+  const navigate = useNavigate();
   const [stores, setStores] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [isCreating, setIsCreating] = useState(false);
-  const [rowId, setRowId] = useState('');
-  const [editId, setEditId] = useState('');
-  const [, setError] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     (
@@ -33,7 +31,6 @@ const StoresPage = () => {
   }, []);
 
   const handleDelete = (id) => {
-    console.log(id, "is Delted")
     try {
       axios.delete(`${API_URL}stores/${id}`)
       setStores(stores.filter((store) => store.id !== id));
@@ -43,20 +40,18 @@ const StoresPage = () => {
   }
 
   const handleEdit = (id) => {
-    console.log(id, "is Deleted")
-    setEditId(id)
+    navigate(PATHS.STORES.EDIT.replace(":id", id));
   }
 
   const handleView = (row) => {
-    console.log(row.id, "is View")
-    setRowId(row.id)
+    navigate(PATHS.STORES.VIEW.replace(':id', row.id));
   }
 
   return (
     <div className='stores-page'>
       <h1>StoresPage</h1>
 
-      <button onClick={() => setIsCreating(true)}>
+      <button onClick={() => navigate(PATHS.STORES.CREATE)}>
         Create Post
       </button>
 
@@ -66,9 +61,6 @@ const StoresPage = () => {
         onRowClick={handleView}
         isLoading={isLoading}
       />
-      {rowId && <Navigate to={`${rowId}`} replace />}
-      {editId && <Navigate to={PATHS.STORES.EDIT.replace(":id", editId)} replace />}
-      {isCreating && <Navigate to={PATHS.STORES.CREATE} replace />}
     </div>
   )
 }

@@ -3,14 +3,14 @@ import Container from '../../Components/Container';
 import StoreForm from '../../Components/StoreForm';
 import axios from 'axios';
 import { PATHS } from '../../Components/router/paths';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import "./style.css"
 import { API_URL } from '../../config/api';
 
 const CreateStorePage = () => {
 
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
-  const [isGoToListPage, setIsGoToListPage] = useState(false);
 
   const handleCreateStore = async (body) => {
     setIsLoading(true);
@@ -18,7 +18,7 @@ const CreateStorePage = () => {
       const res = await axios.post(`${API_URL}stores`, body)
       console.log(res.data)
       setIsLoading(false);
-      setIsGoToListPage(true);
+      navigate(PATHS.STORES.ROOT);
     } catch (error) {
       console.log(error.message)
     }
@@ -35,8 +35,6 @@ const CreateStorePage = () => {
           />
         </div>
       </Container>
-
-      {isGoToListPage && (<Navigate to={PATHS.STORES.ROOT} replace />)}
     </div>
   )
 }

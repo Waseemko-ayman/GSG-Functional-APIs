@@ -2,21 +2,20 @@ import axios from 'axios';
 import { useEffect, useState } from 'react'
 import Container from '../../Components/Container';
 import { PATHS } from '../../Components/router/paths';
-import { Navigate, useParams } from 'react-router-dom';
-import WithParams from '../../Components/WithParams';
+import { useNavigate, useParams } from 'react-router-dom';
 import "./style.css";
 import { API_URL } from '../../config/api';
 
 const StorePage = () => {
 
   const { id } = useParams();
+  const navigate = useNavigate();
   const [store, setStore] = useState({});
   const [isLoading, setIsLoading] = useState(true);
-  const [isEditing, setIsEditing] = useState(false);
   const [, setError] = useState(null);
 
   const handleEdit = () => {
-    setIsEditing(true)
+    navigate(PATHS.STORES.EDIT.replace(":id", id));
   }
 
   useEffect(() => {
@@ -49,11 +48,10 @@ const StorePage = () => {
             </>
           )}
           <button onClick={handleEdit}>Edit</button>
-          {isEditing && <Navigate to={PATHS.STORES.EDIT.replace(":id", id)} replace />}
         </div>
       </Container>
     </div>
   )
 }
 
-export default WithParams(StorePage);
+export default StorePage;
