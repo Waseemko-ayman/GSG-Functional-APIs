@@ -1,0 +1,19 @@
+{
+  "stores": [
+    {
+      "name": "Google Market",
+      "cities": "Gaza",
+      "id": 1
+    },
+    {
+      "name": "Dreem Market",
+      "cities": "Rafah",
+      "id": 2
+    },
+    {
+      "name": "City Start",
+      "cities": "Egypt",
+      "id": 3
+    }
+  ]
+}
