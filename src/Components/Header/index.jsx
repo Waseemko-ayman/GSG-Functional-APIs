@@ -18,6 +18,16 @@ const Header = () => {
             {({ isActive }) => (isActive ? <u>Stores</u> : "Stores")}
           </NavLink>
         </li>
+        <li>
+          <NavLink to={PATHS.ABOUT}>
+            {({ isActive }) => (isActive ? <u>About</u> : "About")}
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to={PATHS.GIFS}>
+            {({ isActive }) => (isActive ? <u>Gifs</u> : "Gifs")}
+          </NavLink>
+        </li>
       </ul>
     </header>
   )
