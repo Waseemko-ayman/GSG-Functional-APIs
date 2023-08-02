@@ -12,7 +12,7 @@ const StoresPage = () => {
   const navigate = useNavigate();
   const [stores, setStores] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
 
   useEffect(() => {
     (

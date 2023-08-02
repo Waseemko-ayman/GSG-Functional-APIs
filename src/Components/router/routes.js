@@ -1,5 +1,5 @@
 import { PATHS } from "./paths";
-import { Navigate, Outlet } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import HomePage from "../../Pages/HomePage";
 import StoresPage from "../../Pages/StoresPage";
 import StorePage from "../../Pages/StorePage";

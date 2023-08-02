@@ -8,7 +8,7 @@ const GifsPage = () => {
   const [search, setSearch] = useState('');
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(null);
+  const [, setError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
