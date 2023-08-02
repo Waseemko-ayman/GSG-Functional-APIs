@@ -2,6 +2,8 @@ export const PATHS = {
   HOME: "/",
   ABOUT: "/about",
   GIFS: "/gifs",
+  LOGIN: "/login",
+  SIGN_UP: "/signup",
   STORES: {
     ROOT: "/stores",
     VIEW: "/stores/:id",

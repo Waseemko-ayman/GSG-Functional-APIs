@@ -10,6 +10,8 @@ import AboutPage from "../../Pages/AboutPage";
 import AdminGuard from "../Guards/AdminGuard";
 import UserGuard from "../Guards/UserGuard";
 import GuestGuards from "../Guards/GuestGuard";
+import LoginPage from "../../Pages/LoginPage";
+import SignUpPage from "../../Pages/SignUpPage";
 
 export const adminPages = [
   {
@@ -25,16 +27,6 @@ export const adminPages = [
         element: <h1>Users</h1>,
       },
     ]
-  },
-  {
-    path: PATHS.STORES.ROOT,
-    element: <Outlet />,
-    children: [
-      {
-        index: true,
-        element: <StoresPage />
-      }
-    ],
   }
 ];
 
@@ -67,6 +59,25 @@ export const userPages = [
   },
 ];
 
+export const authPages = [
+  {
+    path: PATHS.LOGIN,
+    element: (
+      <GuestGuards>
+        <LoginPage />
+      </GuestGuards>
+    ),
+  },
+  {
+    path: PATHS.SIGN_UP,
+    element: (
+      <GuestGuards>
+        <SignUpPage />
+      </GuestGuards>
+    ),
+  }
+]
+
 export const GuestRoutes = [
   {
     index: true,
@@ -76,6 +87,7 @@ export const GuestRoutes = [
       </GuestGuards>
     ),
   },
+  ...authPages,
 ];
 
 export const routers = [
