@@ -18,6 +18,7 @@ const StoresPage = () => {
     (
       async () => {
         try {
+          setIsLoading(true);
           const { data } = await axios.get(`${API_URL}stores`)
           setStores(data)
         } catch (error) {
