@@ -11,10 +11,10 @@ import AdminGuard from "../Guards/AdminGuard";
 import UserGuard from "../Guards/UserGuard";
 import GuestGuards from "../Guards/GuestGuard";
 
-export const adminPages = (role) => [
+export const adminPages = [
   {
     path: PATHS.ADMIN.ROOT,
-    element: <AdminGuard role={role}/>,
+    element: <AdminGuard />,
     children: [
       {
         index: true,
@@ -38,10 +38,10 @@ export const adminPages = (role) => [
   }
 ];
 
-export const userPages = (role) => [
+export const userPages = [
   {
     path: PATHS.STORES.ROOT,
-    element: <UserGuard role={role} />,
+    element: <UserGuard />,
     children: [
       {
         index: true,
@@ -67,21 +67,21 @@ export const userPages = (role) => [
   },
 ];
 
-export const GuestRoutes = (role) => [
+export const GuestRoutes = [
   {
     index: true,
     element: (
-      <GuestGuards role={role}>
+      <GuestGuards>
         <HomePage />
       </GuestGuards>
     ),
   },
 ];
 
-export const routers = (role) => [
-  ...adminPages(role),
-  ...userPages(role),
-  ...GuestRoutes(role),
+export const routers = [
+  ...adminPages,
+  ...userPages,
+  ...GuestRoutes,
   {
     path: PATHS.ERRORS.NOT_FOUND,
     element: <h1>Page Not Found</h1>,
