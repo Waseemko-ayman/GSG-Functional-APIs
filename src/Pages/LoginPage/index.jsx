@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { AUTH_API } from '../../config/api';
 import { useAuthContext } from '../../Components/Context/AuthContext';
 import { ROLES } from '../../Components/Constants';
+import "./style.css"
 
 const LoginPage = () => {
   const {setUser, setToken, setRole} = useAuthContext();
@@ -32,25 +33,27 @@ const LoginPage = () => {
   }
 
   return (
-    <form>
-      <label htmlFor="username">User Name</label>
-      <input 
-        type="text" 
-        id="username" 
-        name="username" 
-        onChange={hadnleInputChange} 
-        value={formData.username}
-      />
-      <label htmlFor="password">Password</label>
-      <input 
-        type="password" 
-        id="password" 
-        name="password" 
-        onChange={hadnleInputChange} 
-        value={formData.password}
-      />
-      <button onClick={handleClick}>Log in</button>
-    </form>
+    <div className="login">
+      <form>
+        <label htmlFor="username">User Name</label>
+        <input 
+          type="text" 
+          id="username" 
+          name="username" 
+          onChange={hadnleInputChange} 
+          value={formData.username}
+        />
+        <label htmlFor="password">Password</label>
+        <input 
+          type="password" 
+          id="password" 
+          name="password" 
+          onChange={hadnleInputChange} 
+          value={formData.password}
+          />
+        <button onClick={handleClick}>Log in</button>
+      </form>
+    </div>
   )
 }
 
