@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
 import "./style.css"
-import { AuthContext, useAuthContext } from '../../Components/Context/AuthContext'
+import { useAuthContext } from '../../Components/Context/AuthContext'
 import { ROLES } from '../../Components/Constants'
 
 const HomePage = () => {
