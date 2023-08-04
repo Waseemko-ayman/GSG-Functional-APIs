@@ -1,0 +1,16 @@
+.gifs form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 20px 0;
+}
+
+.gifs form input {
+  width: 220px;
+  height: 40px;
+  font-size: 18px;
+  border-radius: 5px;
+  border: 1px solid #2c3e50;
+  padding: 8px;
+}

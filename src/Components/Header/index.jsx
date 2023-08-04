@@ -3,10 +3,12 @@ import "./style.css"
 import { NavLink } from 'react-router-dom'
 import { PATHS } from '../router/paths'
 import { useAuthContext } from '../Context/AuthContext'
-import { ROLES } from '../Constants'
+import { ROLES, THEMES } from '../Constants'
+import { useThemeContext } from '../Context/ThemeContext'
 
 const Header = () => {
   const {role} = useAuthContext()
+  const {theme, toggleTheme} = useThemeContext();
 
   return (
     <header className='header'>
@@ -45,6 +47,19 @@ const Header = () => {
             <NavLink to={PATHS.GIFS}>
               {({ isActive }) => (isActive ? <u>Gifs</u> : "Gifs")}
             </NavLink>
+          </li>
+          <li>
+            <button onClick={toggleTheme} style={theme === THEMES.LIGHT ? 
+            {
+              backgroundColor: 'black',
+              color: 'white',
+            } : 
+            {
+              backgroundColor: 'white',
+              color: 'black',
+            }}>
+              {theme === THEMES.LIGHT ? THEMES.DARK : THEMES.LIGHT}
+            </button>
           </li>
         </ul>
       )}

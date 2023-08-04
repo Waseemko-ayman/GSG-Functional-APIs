@@ -1,5 +1,6 @@
 import React from 'react'
 import "./style.css"
+import { useThemeContext } from '../../Components/Context/ThemeContext';
 
 const AboutPage = () => {
   return (

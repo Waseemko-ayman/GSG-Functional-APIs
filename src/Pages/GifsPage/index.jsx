@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { GIPHY_API_KEY, GIPHY_URL } from '../../config/api';
 import Container from '../../Components/Container';
+import "./style.css"
 
 const GifsPage = () => {
 
@@ -33,7 +34,7 @@ const GifsPage = () => {
   // console.log(data);
 
   return (
-    <div>
+    <div className='gifs'>
       <Container>
         <form onSubmit={handleSubmit}>
           <input 

@@ -9,7 +9,7 @@ export const AuthContext = createContext(null)
 export const useAuthContext = () => useContext(AuthContext);
 
 const AuthProvider = ({ children }) => {
-  const [role, setRole] = useState(() => myRole() || ROLES.GUEST);
+  const [role, setRole] = useState(() => myRole() || ROLES.USER);
   const [user, setUser] = useState(null);
   const [token, setToken] = useState(() => myToken() ||'');
 

@@ -1,6 +1,7 @@
 import "./style.css"
 import { useAuthContext } from '../../Components/Context/AuthContext'
 import { ROLES } from '../../Components/Constants'
+import { useThemeContext } from "../../Components/Context/ThemeContext";
 
 const HomePage = () => {
   const data = useAuthContext();
